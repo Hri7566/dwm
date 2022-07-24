@@ -5,18 +5,33 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "Hack Nerd Font Complete Mono:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char gappx				= 3;
+static const char gappx				= 10;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+static const char drac_bg[] = "#282a36";
+static const char drac_current_line[] = "#44475a";
+static const char drac_fg[] = "#f8f8f2";
+static const char drac_comment[] = "#6272a4";
+static const char drac_cyan[] = "#8be9fd";
+static const char drac_green[] = "#50fa7b";
+static const char drac_orange[] = "#ffb86c";
+static const char drac_pink[] = "#ff79c6";
+static const char drac_purple[] = "#bd93f9";
+static const char drac_red[] = "#ff5555";
+static const char drac_yellow[] = "#f1fa8c";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	// [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	// [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { drac_fg, drac_bg, drac_current_line },
+	[SchemeSel] = { drac_fg, drac_purple, drac_purple },
 };
 
 /* tagging */
@@ -58,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", drac_bg, "-nf", drac_fg, "-sb", drac_orange, "-sf", drac_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
